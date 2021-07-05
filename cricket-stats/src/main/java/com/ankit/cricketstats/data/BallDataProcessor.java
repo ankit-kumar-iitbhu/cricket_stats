@@ -18,7 +18,7 @@ public class BallDataProcessor implements ItemProcessor<BallInput, Ball> {
     ball.setInnings(Integer.parseInt(ballData.getInnings()));
 
     //spliting ball field in csv into ball and over
-    String[] splitBall = BallData.getBall().split(".");
+    String[] splitBall = ballData.getBall().split(".");
     ball.setOver(Integer.parseInt(splitBall[0]));
     ball.setBall(Integer.parseInt(splitBall[1]);
 
@@ -27,7 +27,6 @@ public class BallDataProcessor implements ItemProcessor<BallInput, Ball> {
     ball.setStriker(ballData.getStriker());
     ball.setNonStriker(ballData.getNonStriker());
     ball.setBowler(ballData.getBowler());
-
     
     ball.setRunsOffBat(Integer.parseInt(ballData.getRunsOffBat()));
     ball.setExtras(Integer.parseInt(ballData.getExtras()));
