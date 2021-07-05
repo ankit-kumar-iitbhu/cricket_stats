@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter 
 public class BallInput {
 
-    private String match_id;
+    private String matchId;
     private String season;
     private String startDate;
     private String venue;

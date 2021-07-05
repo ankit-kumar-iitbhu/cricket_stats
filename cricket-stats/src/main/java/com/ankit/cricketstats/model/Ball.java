@@ -1,5 +1,7 @@
 package com.ankit.cricketstats.model;
 
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
@@ -17,6 +19,7 @@ public class Ball {
     @Id
     private long matchId;
     private int season;
+    private LocalDate startDate;
     private String venue;
     @Id
     private int innings;
@@ -27,9 +30,9 @@ public class Ball {
     private String battingTeam;
     private String bowlingTeam;
     private String striker;
-    private String non_striker;
+    private String nonStriker;
     private String bowler;
-    private int runs_off_bat;
+    private int runsOffBat;
     private int extras;
     private int wides;
     private int noballs;
