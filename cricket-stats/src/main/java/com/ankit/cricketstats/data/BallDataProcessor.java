@@ -8,6 +8,11 @@ import org.springframework.batch.item.ItemProcessor;
 
 public class BallDataProcessor implements ItemProcessor<BallInput, Ball> {
 
+  int parseIntFromStr(String num){
+    return "".equals(num)? 0 : Integer.parseInt(num);
+  }
+
+
   @Override
   public Ball process(final BallInput ballData) throws Exception {
     Ball ball= new Ball();
@@ -18,23 +23,23 @@ public class BallDataProcessor implements ItemProcessor<BallInput, Ball> {
     ball.setInnings(Integer.parseInt(ballData.getInnings()));
 
     //spliting ball field in csv into ball and over
-    String[] splitBall = ballData.getBall().split(".");
+    String[] splitBall = ballData.getBall().split("\\.");
     ball.setOver(Integer.parseInt(splitBall[0]));
-    ball.setBall(Integer.parseInt(splitBall[1]);
+    ball.setBall(Integer.parseInt(splitBall[1]));
 
     ball.setBattingTeam(ballData.getBattingTeam());
     ball.setBowlingTeam(ballData.getBowlingTeam());
     ball.setStriker(ballData.getStriker());
     ball.setNonStriker(ballData.getNonStriker());
     ball.setBowler(ballData.getBowler());
-    
-    ball.setRunsOffBat(Integer.parseInt(ballData.getRunsOffBat()));
-    ball.setExtras(Integer.parseInt(ballData.getExtras()));
-    ball.setWides(Integer.parseInt(ballData.getWides()));
-    ball.setNoballs(Integer.parseInt(ballData.getNoballs()));
-    ball.setByes(Integer.parseInt(ballData.getByes()));
-    ball.setLegbyes(Integer.parseInt(ballData.getLegbyes()));
-    ball.setPenalty(Integer.parseInt(ballData.getPenalty()));
+
+    ball.setRunsOffBat(parseIntFromStr(ballData.getRunsOffBat()));
+    ball.setExtras(parseIntFromStr(ballData.getExtras()));
+    ball.setWides(parseIntFromStr(ballData.getWides()));
+    ball.setNoballs(parseIntFromStr(ballData.getNoballs()));
+    ball.setByes(parseIntFromStr(ballData.getByes()));
+    ball.setLegbyes(parseIntFromStr(ballData.getLegbyes()));
+    ball.setPenalty(parseIntFromStr(ballData.getPenalty()));
     
     ball.setWicketType(ballData.getWicketType());
     ball.setPlayerDismissed(ballData.getPlayerDismissed());
