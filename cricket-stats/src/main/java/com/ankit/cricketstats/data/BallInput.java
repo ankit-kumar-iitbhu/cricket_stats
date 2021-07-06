@@ -30,6 +30,6 @@ public class BallInput {
     private String wicketType;
     private String playerDismissed;
     private String otherWicketType;
-    private String otherPlayerDismisse;
+    private String otherPlayerDismissed;
     
 }
