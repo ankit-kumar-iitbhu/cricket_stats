@@ -22,9 +22,15 @@ public class JobCompletionNotificationListener extends JobExecutionListenerSuppo
     if(jobExecution.getStatus() == BatchStatus.COMPLETED) {
       System.out.println("!!! JOB FINISHED! Time to verify the results");
 
-      jdbcTemplate.query("SELECT match_id,innings,over,ball FROM ball",
-        (rs, row) -> "ball id " + rs.getString(1) +" "+rs.getString(2)+" " + rs.getString(3)+ "-" +rs.getString(4)
+      // jdbcTemplate.query("SELECT match_id,innings,over,ball FROM ball",
+      //   (rs, row) -> "ball id " + rs.getString(1) +" "+rs.getString(2)+" " + rs.getString(3)+ "-" +rs.getString(4)
+      // ).forEach( str -> System.out.println(str));
+
+      jdbcTemplate.query("SELECT count(*) FROM ball",
+        (rs, row) -> "total row imported " + rs.getString(1)
       ).forEach( str -> System.out.println(str));
+
+      
     }
   }
 }
