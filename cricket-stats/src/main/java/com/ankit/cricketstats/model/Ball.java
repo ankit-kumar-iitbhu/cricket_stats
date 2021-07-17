@@ -21,27 +21,38 @@ public class Ball {
     private int season;
     private LocalDate startDate;
     private String venue;
+
     @Id
     private int innings;
     @Id
     private int over;
     @Id
     private int ball;
+    private String phase; // values - PowerPlay,Middle Over,Death Over, Super Over
+
     private String battingTeam;
     private String bowlingTeam;
+
     private String striker;
     private String nonStriker;
     private String bowler;
-    private int runsOffBat;
-    private int extras;
-    private int wides;
-    private int noballs;
-    private int byes;
-    private int legbyes;
-    private int penalty;
+
+    private int runsOffBat; // runs attributed to batsman
+    private Integer four; // 1 if true
+    private Integer six; // 1 if true
+    private Integer dot; // 1 if true
+    private int extras; //total extras
+    private int bowlerExtras; //extras attributed to bowler
+    private int ballValidForBatsman;
+    private int ballValidForBowler;
+
+
+    private Integer bowlerWicket; // 1 if true
     private String wicketType;
     private String playerDismissed;
     private String otherWicketType;
     private String otherPlayerDismissed;
+
+    //Integer is used where null value is accepted.
 
 }

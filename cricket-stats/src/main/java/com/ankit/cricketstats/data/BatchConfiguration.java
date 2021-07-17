@@ -60,8 +60,8 @@ public class BatchConfiguration {
 
     return new JdbcBatchItemWriterBuilder<Ball>()
         .itemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<>())
-        .sql("INSERT INTO ball (match_id,season,start_date,venue,innings,over,ball,batting_team,bowling_team,striker,non_striker,bowler,runs_off_bat,extras,wides,noballs,byes,legbyes,penalty,wicket_type,player_dismissed,other_wicket_type,other_player_dismissed)"+
-        "VALUES (:matchId,:season,:startDate,:venue,:innings,:over,:ball,:battingTeam,:bowlingTeam,:striker,:nonStriker,:bowler,:runsOffBat,:extras,:wides,:noballs,:byes,:legbyes,:penalty,:wicketType,:playerDismissed,:otherWicketType,:otherPlayerDismissed)"
+        .sql("INSERT INTO ball (match_id,season,start_date,venue,innings,over,ball,phase,batting_team,bowling_team,striker,non_striker,bowler,runs_off_bat,four,six,dot,extras,bowler_extras,ball_valid_for_batsman,ball_valid_for_bowler,bowler_wicket,wicket_type,player_dismissed,other_wicket_type,other_player_dismissed)"+
+        "VALUES (:matchId,:season,:startDate,:venue,:innings,:over,:ball,:phase,:battingTeam,:bowlingTeam,:striker,:nonStriker,:bowler,:runsOffBat,:four,:six,:dot,:extras,:bowlerExtras,:ballValidForBatsman,:ballValidForBowler,:bowlerWicket,:wicketType,:playerDismissed,:otherWicketType,:otherPlayerDismissed)"
         )
         .dataSource(dataSource)
         .build();
