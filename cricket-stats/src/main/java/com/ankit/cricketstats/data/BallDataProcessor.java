@@ -51,23 +51,23 @@ public class BallDataProcessor implements ItemProcessor<BallInput, Ball> {
     int bowlerExtras= parseIntFromStr(ballData.getWides())+parseIntFromStr(ballData.getNoballs());
     ball.setBowlerExtras(bowlerExtras);
 
-    if(ball.getExtras()+ball.getRunsOffBat() == 0 ){
-      ball.setDot(1);
-    }
 
-    if(ball.getRunsOffBat()==4){
-      ball.setFour(1);
-    }
+    int dot= (ball.getExtras()+ball.getRunsOffBat() == 0 )? 1:0;
+    ball.setDot(dot);
 
-    if(ball.getRunsOffBat()==6){
-      ball.setSix(1);
-    }
+    int four= (ball.getRunsOffBat()==4)? 1:0;
+    ball.setFour(four);
+
+    int six=(ball.getRunsOffBat()==6)?1:0;
+    ball.setSix(six);
+  
 
     int ballValidForBatsman = (parseIntFromStr(ballData.getWides())!=0) ? 0 : 1;
     int ballValidForBowler = (bowlerExtras == 0) ? 1 : 0;
     ball.setBallValidForBatsman(ballValidForBatsman);
     ball.setBallValidForBowler(ballValidForBowler);
 
+    ball.setBowlerWicket(0);
 
     if(ballData.getWicketType()!=""){
       String wicketType=ballData.getWicketType();

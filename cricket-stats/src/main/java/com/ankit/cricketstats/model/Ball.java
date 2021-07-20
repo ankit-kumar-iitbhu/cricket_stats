@@ -38,16 +38,16 @@ public class Ball {
     private String bowler;
 
     private int runsOffBat; // runs attributed to batsman
-    private Integer four; // 1 if true
-    private Integer six; // 1 if true
-    private Integer dot; // 1 if true
+    private int four; // 1 if true
+    private int six; // 1 if true
+    private int dot; // 1 if true
     private int extras; //total extras
     private int bowlerExtras; //extras attributed to bowler
     private int ballValidForBatsman;
     private int ballValidForBowler;
 
 
-    private Integer bowlerWicket; // 1 if true
+    private int bowlerWicket; // 1 if true
     private String wicketType;
     private String playerDismissed;
     private String otherWicketType;
