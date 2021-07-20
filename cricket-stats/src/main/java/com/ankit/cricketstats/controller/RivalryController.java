@@ -2,8 +2,8 @@ package com.ankit.cricketstats.controller;
 
 import java.util.List;
 
-import com.ankit.cricketstats.model.Ball;
 import com.ankit.cricketstats.repository.BallRepository;
+import com.ankit.cricketstats.response.BatsmanVsBowler;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,8 +18,8 @@ public class RivalryController {
     private BallRepository ballRepository;
 
     @RequestMapping(value = "/findByStrikerAndBowler", method = RequestMethod.GET)
-    List<Ball> getBallByStriker(@RequestParam String striker,@RequestParam String bowler){
-        return ballRepository.findByStrikerAndBowler(striker,bowler);
+    List<BatsmanVsBowler> getBallByStriker(@RequestParam String striker,@RequestParam String bowler){
+        return ballRepository.getHeadToHead(striker,bowler);
     }
     
 }
